@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: out_of_hist
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn myproject.wsgi"
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: myproject.settings
+      - key: SECRET_KEY
+        value: django-insecure-d=u7+r-^6po!uo^3d1!a26#r0i^59=3@m!@%+3m%(-h6vi8((1

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>結果</title>
+</head>
+<body>
+    <h1>統計データとヒストグラム</h1>
+    <ul>
+        {% for header, data in stats.items %}
+            <li>
+                <h2>{{ header }}</h2>
+                <p>平均値: {{ data.mean }}</p>
+                <p>標準偏差: {{ data.std }}</p>
+                <img src="data:image/png;base64,{{ data.histogram }}" alt="Histogram">
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'upload_file' %}">別のファイルをアップロード</a>
+</body>
+</html>
