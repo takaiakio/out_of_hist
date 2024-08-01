@@ -20,8 +20,8 @@ def upload_file(request):
             stats = {}
             for header in headers:
                 if pd.api.types.is_numeric_dtype(df[header]):
-                    mean = df[header].mean()
-                    std = df[header].std()
+                    mean = round(df[header].mean(), 2)
+                    std = round(df[header].std(), 2)
                     stats[header] = {'mean': mean, 'std': std}
                     
                     # ヒストグラムの作成
