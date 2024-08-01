@@ -60,8 +60,8 @@ def upload_file(request):
             usl = form.cleaned_data.get('usl')
             df = pd.read_csv(csv_file)
             
-            # ヘッダラベルの取得
-            headers = df.columns
+            # 2列目以降を対象にする
+            headers = df.columns[1:]
             
             # 統計データの計算
             stats = {}
