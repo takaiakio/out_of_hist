@@ -11,6 +11,9 @@
                 <h2>{{ header }}</h2>
                 <p>平均値: {{ data.mean }}</p>
                 <p>標準偏差: {{ data.std }}</p>
+                {% if data.cpk is not None %}
+                    <p>Cpk: {{ data.cpk }}</p>
+                {% endif %}
                 <img src="data:image/png;base64,{{ data.histogram }}" alt="Histogram">
             </li>
         {% endfor %}
@@ -18,3 +21,4 @@
     <a href="{% url 'upload_file' %}">別のファイルをアップロード</a>
 </body>
 </html>
+
